@@ -7,7 +7,7 @@ public class Solution {
     }
 
     // Using binary search on raw bits.
-    public boolean isPowerOfTwo(int n) {
+    public boolean isPowerOfTwoUsingBits(int n) {
         int a = 1, lo = 0, hi = 31;
         while (lo < hi) {
             int mid = (lo + hi) / 2;
