@@ -10,7 +10,5 @@ var isAnagram = function(s, t) {
     for (a = 0; a < s.length; a++) {
         sArr[s.charCodeAt(a) - 97]++; tArr[t.charCodeAt(a) - 97]++;
     }
-    
-    for (a = 0; a < sArr.length; a++) if (sArr[a] !== tArr[a]) return false;
-    return true;
+    return sArr.every((e, i) => e === tArr[i]);
 };
