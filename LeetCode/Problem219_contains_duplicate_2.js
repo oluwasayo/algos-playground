@@ -4,12 +4,11 @@
  * @return {boolean}
  */
 var containsNearbyDuplicate = function(nums, k) {
-    if (k === 0 || nums.length === 0) return false;
+    if (k === 0 || nums.length < 2) return false;
     store = {};
-    for (a = 0; a < nums.length; a++) {
-        if (store[nums[a]] === undefined) store[nums[a]] = a;
-        else if (a - store[nums[a]] <= k) return true;
-        else store[nums[a]] = a;
-    }
-    return false;
+    return nums.some((e, i) => {
+        if (store[e] === undefined) store[e] = i;
+        else if (i - store[e] <= k) return true;
+        else store[e] = i;
+    });
 };
